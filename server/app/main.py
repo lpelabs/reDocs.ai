@@ -5,6 +5,8 @@ from typing import Annotated
 from datetime import date
 from fastapi.middleware.cors import CORSMiddleware
 
+from api.routes import routes
+
 app = FastAPI()
 
 # Add CORS middleware
@@ -15,6 +17,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include your API routers here
+app.include_router(routes.router, prefix="", tags=["reDocs.ai"])
 
 @app.get("/")
 async def main():
