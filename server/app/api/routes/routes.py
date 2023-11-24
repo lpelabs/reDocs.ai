@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi import APIRouter, HTTPException, Depends, status, UploadFile, File
 
 from utils.traverse_file import bfs_traversal
 
@@ -39,6 +39,24 @@ def extract_zip_file():
         response = extract_zip("output.zip", "files")
 
         return {"message": f"response: {response}"}
+    
+    except Exception as e:
+
+        raise Exception(f"{e}")
+    
+@router.post("/doxify")
+async def upload_file(file: UploadFile = File(...)):
+    try:
+
+        with open(f'uploads/{file.filename}', 'wb') as f:
+
+            while chunk := await file.read(1024):
+                f.write(chunk)
+
+        extract_zip(f'uploads/{file.filename}', "files")
+
+
+        return {'message': 'File uploaded successfully'}
     
     except Exception as e:
 
