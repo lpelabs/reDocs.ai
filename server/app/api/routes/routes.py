@@ -6,6 +6,8 @@ from utils.folder_to_zip import folder_to_zip
 
 from utils.extract_zip import extract_zip
 
+from utils.create_folder import create_folder_if_not_exists
+
 router = APIRouter()
 
 @router.get("/doxify_all")
@@ -47,8 +49,11 @@ def extract_zip_file():
 @router.post("/doxify")
 async def upload_file(file: UploadFile = File(...)):
     try:
+        upload_folder = "uploads"
+        
+        create_folder_if_not_exists(upload_folder)
 
-        with open(f'uploads/{file.filename}', 'wb') as f:
+        with open(f'{upload_folder}/{file.filename}', 'wb') as f:
 
             while chunk := await file.read(1024):
                 f.write(chunk)
