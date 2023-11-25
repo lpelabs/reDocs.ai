@@ -69,10 +69,12 @@ def call_openai_api_higher_tokens(text, output_file):
         temperature=0.5,
     )
     save_to_file(response, output_file)
-    # return response.choices[0]['message']['content'].strip()
 
-# Specify your input text and output file path
+# A function to test out the overall workflow of the app
+# Incase you wanna disable this and use the actual GPT-3.5 API, set SHOULD_MOCK_AI_RESPONSE to False
 
-# process_chunks(text, output_file)
+def mock_chunks_gpt(text, output_file):
 
-# Can take up to a few minutes to run depending on the size of your data input
+    response = text
+    
+    save_to_file(response, output_file)

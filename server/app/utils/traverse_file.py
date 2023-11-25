@@ -3,16 +3,20 @@ from queue import Queue
 
 from utils.process_files import process_file
 
-from logic.infinite_gpt import process_chunks, call_openai_api_higher_tokens
+from logic.infinite_gpt import process_chunks, call_openai_api_higher_tokens, mock_chunks_gpt
 
 from logic.convert_embeddings import convert_embeddings, clustering
 
 import numpy as np
 
+# from dotenv import load_dotenv
+
+# load_dotenv()
+
 media_extensions = ['github','docs','jpg', 'jpeg', 'png', 'gif', 'bmp','svg', 'mp3', 'wav', 'ogg', 'mp4', 'avi', 'mkv', 'ico', 'pdf', 'nix', 'ttf', 'lock', 'pyc']
 ignore_files = ['package-lock.json', 'venv', 'public', 'assets', 'lotties', 'readme.md']
 
-
+SHOULD_MOCK_AI_RESPONSE = True
 
 def bfs_traversal(root_dir):
     queue = Queue()
@@ -87,11 +91,6 @@ def bfs_traversal(root_dir):
 
     print(reshaped_embeddings_list)
 
-    # print(reshaped_embeddings_list.shape)
-    # print(reshaped_embeddings_list[0].shape)
-    # print(reshaped_embeddings_list[1].shape)
-    # print(reshaped_embeddings_list[2].shape)
-
     indices_list = clustering(reshaped_embeddings_list)
 
     print(type(indices_list))
@@ -102,7 +101,10 @@ def bfs_traversal(root_dir):
         prompt = ' '.join([code_for_gpt[i] for i in index])
         # Call GPT
         # call_openai_api_higher_tokens(prompt, f'files/output{i}.md')
-        process_chunks(prompt, f'docs/output{i}.md')
+        if SHOULD_MOCK_AI_RESPONSE:
+            mock_chunks_gpt(prompt, f'docs/output{i}.md')
+        else:
+            process_chunks(prompt, f'docs/output{i}.md')
         i+=1
 
 
