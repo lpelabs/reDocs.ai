@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, status, UploadFile, File
+from fastapi import APIRouter, HTTPException, Depends, status, UploadFile, File, FileResponse
 
 from utils.traverse_file import bfs_traversal
 
@@ -11,10 +11,10 @@ from utils.create_folder import create_folder_if_not_exists
 router = APIRouter()
 
 @router.get("/doxify_all")
-def generate_all_docs():
+def generate_all_docs(file_path):
     try:
 
-        bfs_traversal("./files")
+        bfs_traversal(file_path)
 
         return {"message": "All files doxified."}
     
@@ -50,8 +50,12 @@ def extract_zip_file():
 async def upload_file(file: UploadFile = File(...)):
     try:
         upload_folder = "uploads"
+
+        docs_folder = "docs"
         
         create_folder_if_not_exists(upload_folder)
+
+        create_folder_if_not_exists(docs_folder)
 
         with open(f'{upload_folder}/{file.filename}', 'wb') as f:
 
@@ -60,8 +64,12 @@ async def upload_file(file: UploadFile = File(...)):
 
         extract_zip(f'uploads/{file.filename}', "files")
 
+        generate_all_docs("./files")
 
-        return {'message': 'File uploaded successfully'}
+        folder_to_zip(docs_folder, "output")
+        zip_file_path = "output.zip"
+
+        return FileResponse(zip_file_path, filename="docs.zip")
     
     except Exception as e:
 

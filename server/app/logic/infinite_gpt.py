@@ -4,6 +4,7 @@ import tiktoken
 from dotenv import load_dotenv
 import os
 import json
+import backoff # for exponential backoff
 
 load_dotenv()
 
@@ -21,15 +22,15 @@ def save_to_file(responses, output_file):
             file.write(response + '\n')
 
 # Change your OpenAI chat model accordingly
-
+@backoff.on_exception(backoff.expo, openai.error.RateLimitError)
 def call_openai_api(chunk):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo-16k",
         messages=[
             {"role": "system", "content": "You are a smart technical writer who understands code and can write documentation for it."},
             {"role": "user", "content": f"Give me a developers documentation of the following code. Give a brief intro, table of contents, function explanations, dependencies, API specs (if present), schema tables in markdown. Give in markdown format and try to strict to the headings\n\n: {chunk}."},
         ],
-        max_tokens=500,
+        max_tokens=5000,
         n=1,
         stop=None,
         temperature=0.5,
@@ -53,6 +54,22 @@ def process_chunks(text, output_file):
         responses = list(executor.map(call_openai_api, chunks))
 
     save_to_file(responses, output_file)
+
+# @backoff.on_exception(backoff.expo, openai.error.RateLimitError)
+def call_openai_api_higher_tokens(text, output_file):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo-16k",
+        messages=[
+            {"role": "system", "content": "You are a smart technical writer who understands code and can write documentation for it."},
+            {"role": "user", "content": f"Give me a developers documentation of the following code. Give a brief intro, table of contents, function explanations, dependencies, API specs (if present), schema tables in markdown. Give in markdown format and try to strict to the headings\n\n: {text}."},
+        ],
+        max_tokens=2000,
+        n=1,
+        stop=None,
+        temperature=0.5,
+    )
+    save_to_file(response, output_file)
+    # return response.choices[0]['message']['content'].strip()
 
 # Specify your input text and output file path
 

@@ -23,8 +23,8 @@ def process_file(file_path):
 
         result = embedding(prompt_text)
 
-        embedding_List.append(result)
+        # embedding_List.append(result)
         # print(result)
         # Process the file here
         # print(prompt_text)
-    return prompt_text
+    return (prompt_text, result)
