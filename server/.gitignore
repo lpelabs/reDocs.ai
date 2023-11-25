@@ -1,0 +1,12 @@
+venv
+model
+doxify
+files
+__pycache__
+tempCodeRunnerFile.py
+output.zip
+output/
+.vscode/
+uploads
+.env
+docs
