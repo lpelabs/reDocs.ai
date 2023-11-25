@@ -128,7 +128,7 @@ const Feature = () => {
               </div>
             </div>
           </div>
-          <div className="list-none gap-4 grid grid-cols-1 lg:gap-24 lg:grid-cols-2 mt-6">
+          {/* <div className="list-none gap-4 grid grid-cols-1 lg:gap-24 lg:grid-cols-2 mt-6">
             <div className="h-full lg:mt-0 lg:order-none mt-12 order-1">
               <div className="w-full border-white/10 lg:border lg:rounded-3xl lg:p-2">
                 <img src="https://www.docuwriter.ai/assets/Swagger-Editor.png" />
@@ -206,8 +206,44 @@ const Feature = () => {
                 </span>
               </Link>
             </div>
-          </div>
+          </div> */}
           <div className="list-none gap-4 grid grid-cols-1 lg:gap-24 lg:grid-cols-2 mt-6">
+            <div className="h-full lg:mt-0 lg:order-none mt-12 order-1">
+              <div className="w-full border-white/10 lg:border lg:p-10 lg:rounded-3xl">
+                {/* <div className="flex gap-3 -mb-px items-stretch" x-tabs:list="">
+                  <button
+                    className="font-semibold text-white inline-flex py-2 text-xs border-b border-cyan-500 focus:border-cyan-500 border-b border-cyan-500 focus:border-cyan-500"
+                    type="button"
+                    x-tabs:tab=""
+                    tabindex="0"
+                  >
+                    Example - Time Elapsed JS
+                  </button>{" "}
+                  <button
+                    className="text-xs inline-flex py-2 text-white font-semibold3 bg-transparent border-b border-cyan-500 focus:border-cyan-500"
+                    type="button"
+                    x-tabs:tab=""
+                    tabindex="-1"
+                  >
+                    Test Generated - JS
+                  </button>
+                </div> */}
+                {/* <div className="mt-6" x-tabs:panels="">
+                  <section
+                    className="h-full bg-[#222222] font-mono mt-4 overflowhidden p-4 text-xs hadow-2xl rounded-3xl"
+                    x-tabs:panel=""
+                    tabindex="0"
+                    style=""
+                  >
+                    <pre
+                      className="astro-code slack-dark"
+                      style="background-color: rgb(34, 34, 34); overflow-x: auto; position: relative;"
+                      tabindex="0"
+                    />
+                  </section>
+                </div> */}
+              </div>
+            </div>
             <div>
               <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#9940ed] text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">
                 TESTS GENERATION
@@ -305,77 +341,8 @@ const Feature = () => {
                 </span>
               </Link>
             </div>
-            <div className="h-full lg:mt-0 lg:order-none mt-12 order-1">
-              <div className="w-full border-white/10 lg:border lg:p-10 lg:rounded-3xl">
-                {/* <div className="flex gap-3 -mb-px items-stretch" x-tabs:list="">
-                  <button
-                    className="font-semibold text-white inline-flex py-2 text-xs border-b border-cyan-500 focus:border-cyan-500 border-b border-cyan-500 focus:border-cyan-500"
-                    type="button"
-                    x-tabs:tab=""
-                    tabindex="0"
-                  >
-                    Example - Time Elapsed JS
-                  </button>{" "}
-                  <button
-                    className="text-xs inline-flex py-2 text-white font-semibold3 bg-transparent border-b border-cyan-500 focus:border-cyan-500"
-                    type="button"
-                    x-tabs:tab=""
-                    tabindex="-1"
-                  >
-                    Test Generated - JS
-                  </button>
-                </div> */}
-                {/* <div className="mt-6" x-tabs:panels="">
-                  <section
-                    className="h-full bg-[#222222] font-mono mt-4 overflowhidden p-4 text-xs hadow-2xl rounded-3xl"
-                    x-tabs:panel=""
-                    tabindex="0"
-                    style=""
-                  >
-                    <pre
-                      className="astro-code slack-dark"
-                      style="background-color: rgb(34, 34, 34); overflow-x: auto; position: relative;"
-                      tabindex="0"
-                    />
-                  </section>
-                </div> */}
-              </div>
-            </div>
           </div>
           <div className="list-none gap-4 grid grid-cols-1 lg:gap-24 lg:grid-cols-2 mt-6">
-            <div className="h-full lg:mt-0 lg:order-none mt-12 order-1">
-              <div
-                className="w-full border-white/10 lg:border lg:p-10 lg:rounded-3xl"
-                x-data=""
-                x-tabs=""
-              >
-                {/* <div className="flex gap-3 -mb-px items-stretch" x-tabs:list="">
-                  <button
-                    className="font-semibold text-white inline-flex py-2 text-xs border-b border-cyan-500 focus:border-cyan-500 border-b border-cyan-500 focus:border-cyan-500"
-                    type="button"
-                    x-tabs:tab=""
-                    tabindex="0"
-                  >
-                    Example - Test Python
-                  </button>
-                  <button
-                    className="text-xs inline-flex py-2 text-white font-semibold3 bg-transparent border-b border-cyan-500 focus:border-cyan-500"
-                    type="button"
-                    x-tabs:tab=""
-                    tabindex="-1"
-                  >
-                    Refactored / Optimized Code
-                  </button>
-                </div> */}
-                {/* <div className="mt-6" x-tabs:panels="">
-                  <section
-                    className="h-full bg-[#222222] font-mono mt-4 overflowhidden p-4 text-xs hadow-2xl rounded-3xl"
-                    x-tabs:panel=""
-                    tabindex="0"
-                  ></section>
-                </div> */}
-              </div>
-            </div>
             <div>
               <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#9940ed] text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">
                 Code Refactoring / Optimization
@@ -472,6 +439,39 @@ const Feature = () => {
                   Get started ✨
                 </span>
               </Link>
+            </div>
+            <div className="h-full lg:mt-0 lg:order-none mt-12 order-1">
+              <div
+                className="w-full border-white/10 lg:border lg:p-10 lg:rounded-3xl"
+                x-data=""
+                x-tabs=""
+              >
+                {/* <div className="flex gap-3 -mb-px items-stretch" x-tabs:list="">
+                  <button
+                    className="font-semibold text-white inline-flex py-2 text-xs border-b border-cyan-500 focus:border-cyan-500 border-b border-cyan-500 focus:border-cyan-500"
+                    type="button"
+                    x-tabs:tab=""
+                    tabindex="0"
+                  >
+                    Example - Test Python
+                  </button>
+                  <button
+                    className="text-xs inline-flex py-2 text-white font-semibold3 bg-transparent border-b border-cyan-500 focus:border-cyan-500"
+                    type="button"
+                    x-tabs:tab=""
+                    tabindex="-1"
+                  >
+                    Refactored / Optimized Code
+                  </button>
+                </div> */}
+                {/* <div className="mt-6" x-tabs:panels="">
+                  <section
+                    className="h-full bg-[#222222] font-mono mt-4 overflowhidden p-4 text-xs hadow-2xl rounded-3xl"
+                    x-tabs:panel=""
+                    tabindex="0"
+                  ></section>
+                </div> */}
+              </div>
             </div>
           </div>
         </div>
