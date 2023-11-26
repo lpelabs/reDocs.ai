@@ -19,7 +19,7 @@ export default function Hero() {
                             <div class="md:text-center text-left">
                                 <div class="max-w-2xl gap-6 lg:gap-12 lg:items-end mx-auto">
                                     <div>
-                                        <span class="text-xs bg-clip-text bg-gradient-to-r font-medium from-purple-400 text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">DocuWriter.ai</span>
+                                        <span class="text-lg bg-clip-text bg-gradient-to-r font-medium from-purple-400 text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">reDocs.ai</span>
                                         <h1 class="font-normal text-white mt-8 text-3xl">AI-powered tools to <strong>generate Code &amp; API documentation, Tests, and Code Refactors</strong> <u>from your source code files</u></h1>
                                     </div>
                                 </div>
