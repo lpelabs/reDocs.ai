@@ -8,7 +8,11 @@ from utils.folder_to_zip import folder_to_zip
 
 from utils.extract_zip import extract_zip
 
-from utils.create_folder import create_folder_if_not_exists
+from utils.create_folder import create_folder_if_not_exists, delete_folder_if_exists
+
+from utils.generate_tests import generate_all_tests
+
+from logic.infinite_gpt import ask_gpt_to_generate_tests
 
 router = APIRouter()
 
@@ -54,10 +58,20 @@ async def upload_file(file: UploadFile = File(...)):
         upload_folder = "uploads"
 
         docs_folder = "docs"
+
+        files_folder = "files"
+
+        delete_folder_if_exists(upload_folder)
+
+        delete_folder_if_exists(docs_folder)
+
+        delete_folder_if_exists(files_folder)
         
         create_folder_if_not_exists(upload_folder)
 
         create_folder_if_not_exists(docs_folder)
+
+        create_folder_if_not_exists(files_folder)
 
         with open(f'{upload_folder}/{file.filename}', 'wb') as f:
 
@@ -79,3 +93,29 @@ async def upload_file(file: UploadFile = File(...)):
 
         raise Exception(f"{e}")
         # raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"{e}")
+
+@router.post("/generate_tests")
+async def generate_tests(file: UploadFile = File(...)):
+    try:
+        tests_uploads_folder = "tests_uploads"
+        tests_folder = "generated_tests"
+
+        delete_folder_if_exists(tests_uploads_folder)
+        delete_folder_if_exists(tests_folder)
+        create_folder_if_not_exists(tests_uploads_folder)
+        create_folder_if_not_exists(tests_folder)
+
+        file_path = f'{tests_uploads_folder}/{file.filename}'
+
+        with open(file_path, 'wb') as f:
+            while chunk := await file.read(1024):
+                f.write(chunk)
+
+        prompt_text = generate_all_tests(file_path)
+
+        ask_gpt_to_generate_tests(prompt_text, f"{tests_folder}")
+
+        return {"message": "All tests generated."}
+    except Exception as e:
+        return {"error": str(e)}
+   

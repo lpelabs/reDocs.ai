@@ -10,3 +10,5 @@ output/
 uploads
 .env
 docs
+tests_uploads
+generated_tests
