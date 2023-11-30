@@ -104,7 +104,9 @@ def bfs_traversal(root_dir):
         if SHOULD_MOCK_AI_RESPONSE:
             mock_chunks_gpt(prompt, f'docs/output{i}.md')
         else:
-            process_chunks(prompt, f'docs/output{i}.md')
+            system_prompt = """You are a smart technical writer who understands code and can write documentation for it."""
+            user_prompt = """Give me a developers documentation of the following code. Give a brief intro, table of contents, function explanations, dependencies, API specs (if present), schema tables in markdown. Give in markdown format and try to strict to the headings"""
+            process_chunks(prompt, f'docs/output{i}.md', system_prompt, user_prompt)
         i+=1
 
 
