@@ -15,8 +15,8 @@ export default function Navbar() {
                             <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round inline-flex" class="inline-flex" stroke-width="2"></path><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round inline-flex" class="hidden" stroke-width="2"></path></svg>
                         </button>
                     </div>
-                    <nav class="items-center flex-col flex-grow hidden md:flex md:flex-row md:justify-end md:pb-0" >
-                        <Link href="/" class="text-sm text-white font-normal hover:text-white/50 lg:px-6 md:px-3 px-2 py-2 lg:ml-auto">Home</Link>
+                    <nav class="items-center flex-col flex-grow hidden md:flex md:flex-row md:justify-center md:pb-0" >
+                        <Link href="/" class="text-sm text-white font-normal hover:text-white/50 lg:px-6 md:px-3 px-2 py-2">Home</Link>
                         <Link href="/#features" class="text-sm text-white font-normal hover:text-white/50 lg:px-6 md:px-3 px-2 py-2">Features</Link>
                         <Link href="#" class="text-sm text-white font-normal hover:text-white/50 lg:px-6 md:px-3 px-2 py-2">Blog</Link>
                         <Link href="#" class="text-sm text-white font-normal hover:text-white/50 lg:px-6 md:px-3 px-2 py-2">Generation Examples</Link>
