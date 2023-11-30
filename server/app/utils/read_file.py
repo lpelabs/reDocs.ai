@@ -1,5 +1,5 @@
 
-def generate_all_tests(file_path):
+def read_file(file_path):
 
     print(file_path)
     

@@ -10,9 +10,9 @@ from utils.extract_zip import extract_zip
 
 from utils.create_folder import create_folder_if_not_exists, delete_folder_if_exists
 
-from utils.generate_tests import generate_all_tests
+from utils.read_file import read_file
 
-from logic.infinite_gpt import ask_gpt_to_generate_tests
+from logic.infinite_gpt import ask_gpt_to_generate_tests, ask_gpt_to_refactor_code
 
 router = APIRouter()
 
@@ -111,11 +111,45 @@ async def generate_tests(file: UploadFile = File(...)):
             while chunk := await file.read(1024):
                 f.write(chunk)
 
-        prompt_text = generate_all_tests(file_path)
+        prompt_text = read_file(file_path)
 
         ask_gpt_to_generate_tests(prompt_text, f"{tests_folder}")
 
-        return {"message": "All tests generated."}
+        tests_file_path = f"{tests_folder}/output.txt"
+
+        return FileResponse(tests_file_path, filename="output.txt")
+
+
     except Exception as e:
         return {"error": str(e)}
    
+@router.post("/refactor")
+async def refactor(file: UploadFile = File(...)):
+    try:
+
+        refactor_uploads_folder = "refactor_uploads"
+
+        refactored_folder = "refactored_code"
+
+        delete_folder_if_exists(refactor_uploads_folder)
+
+        delete_folder_if_exists(refactored_folder)
+
+        create_folder_if_not_exists(refactor_uploads_folder)
+
+        create_folder_if_not_exists(refactored_folder)
+
+        with open(f'{refactor_uploads_folder}/{file.filename}', 'wb') as f:
+            while chunk := await file.read(1024):
+                f.write(chunk)
+
+        prompt_text = read_file(f'{refactor_uploads_folder}/{file.filename}')
+
+        ask_gpt_to_refactor_code(prompt_text, f"{refactored_folder}")
+
+        refactored_file_path = f"{refactored_folder}/output.txt"
+
+        return FileResponse(refactored_file_path, filename="output.txt")
+
+    except Exception as e:
+        raise Exception(f"{e}")
