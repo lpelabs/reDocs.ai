@@ -129,7 +129,7 @@ export default function Refactor(props) {
             {loading
                 ? <Loading />
                 : <>
-                    <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-gray-400 inline text-[72px] font-bold">
+                    <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-gray-400 inline text-[46px] font-bold">
                         code refactor
                     </h1>
                     <div class="flex justify-between w-full -z-[2px] absolute flex-row h-full left-0 lg:h-full lg:max-w-7xl lg:px-0 mx-auto px-6 right-0">
