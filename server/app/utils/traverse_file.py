@@ -16,7 +16,7 @@ import numpy as np
 media_extensions = ['github','docs','jpg', 'jpeg', 'png', 'gif', 'bmp','svg', 'mp3', 'wav', 'ogg', 'mp4', 'avi', 'mkv', 'ico', 'pdf', 'nix', 'ttf', 'lock', 'pyc']
 ignore_files = ['package-lock.json', 'venv', 'public', 'assets', 'lotties', 'readme.md']
 
-SHOULD_MOCK_AI_RESPONSE = True
+SHOULD_MOCK_AI_RESPONSE = False
 
 def bfs_traversal(root_dir):
     queue = Queue()
