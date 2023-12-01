@@ -19,7 +19,12 @@ def load_text(file_path):
 def save_to_file(responses, output_file):
     with open(output_file, 'w') as file:
         for response in responses:
-            file.write(response + '\n')
+            file.write(response)
+
+def save_to_file_process_chunk(responses, output_file):
+    with open(output_file, 'w') as file:
+        for response in responses:
+            file.write(response + '\n\n')
 
 def split_into_chunks(text, tokens=500):
     encoding = tiktoken.encoding_for_model('gpt-3.5-turbo')
@@ -37,18 +42,18 @@ def process_chunks(text, output_file, system_prompt, user_prompt):
     with ThreadPoolExecutor() as executor:
         responses = list(executor.map(lambda chunk: call_openai_api(chunk, system_prompt, user_prompt), chunks))
 
-    save_to_file(responses, output_file)
+    save_to_file_process_chunk(responses, output_file)
 
 # Change your OpenAI chat model accordingly, and this is the main function that calls the OpenAI API
 @backoff.on_exception(backoff.expo, openai.error.RateLimitError)
 def call_openai_api(text, system_prompt, user_prompt):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-16k",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"{user_prompt}\n\n: {text}."}
         ],
-        max_tokens=5000,
+        max_tokens=2000,
         n=1,
         stop=None,
         temperature=0.5,
@@ -67,27 +72,31 @@ def mock_chunks_gpt(text, output_file):
 
 def ask_gpt_to_generate_tests(prompt_text, output_folder):
 
-    system_prompt = """You are a smart tech person who understands code and can write tests for it."""
+    system_prompt = """You are a smart tech person who understands code and can write production ready tests for it."""
 
-    user_prompt = """Write tests for the following code, make sure to handle all the test cases, if you are writing tests to test an API endpoint, try also writing the tests such that it makes a legit request by sending appropriate data to the endpoint. Choose writing tests in the best framework possible according to the language, return only the code for the tests."""
+    user_prompt = """Write tests for the following code, make sure to handle all the test cases, if you are writing tests to test an API endpoint, try also writing the tests such that it makes a legit request by sending appropriate data to the endpoint. Choose writing tests in the best framework possible according to the language, strictly return only the code for the tests, avoid returning any other text."""
     
     output_file = f'{output_folder}/output.txt'
-    mock_chunks_gpt(prompt_text, output_file)
-    # response = call_openai_api(prompt_text, system_prompt, user_prompt)
-    # save_to_file(response, output_file)
+    # mock_chunks_gpt(prompt_text, output_file)
+    response = call_openai_api(prompt_text, system_prompt, user_prompt)
+    print(response)
+    save_to_file(response, output_file)
 
 
 def ask_gpt_to_refactor_code(prompt_text, output_folder):
 
     system_prompt = """You are a skilled software engineer who specializes in code optimization and refactoring."""
 
-    user_prompt = """Refactor the following code to improve its performance and maintain its functionality, please do not break things up. Return only the code for the refactored code."""
+    user_prompt = """Refactor the following code to improve its performance and maintain its functionality, please do not break things up. Strictly Return only the code for the refactored code, avoid returning any other text."""
 
     output_file = f'{output_folder}/output.txt'
 
-    mock_chunks_gpt(prompt_text, output_file)
-    # response = call_openai_api(prompt_text, system_prompt, user_prompt)
-    # save_to_file(response, output_file)
+    # mock_chunks_gpt(prompt_text, output_file)
+    response = call_openai_api(prompt_text, system_prompt, user_prompt)
+
+    print(response)
+    
+    save_to_file(response, output_file)
 
 # -----DEPRECATED CODE-----
 
