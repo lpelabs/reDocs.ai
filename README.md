@@ -48,7 +48,7 @@ To clone and run the prototype for testing and analysis, follow the instructions
 
 ### Server Setup Guide
 
-Check out the Server Setup guide [here](../reDocs.ai/server/README.md).
+Check out the Server Setup guide [here](/server/README.md).
 
 ### Client Frontend Setup(make sure you are in the client directory)
 
