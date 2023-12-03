@@ -17,6 +17,7 @@ Our prototype offers a seamless solution to transform a full codebase into compr
 To power our documentation generation, we leverage the capabilities of GPT-3.5. This advanced language model enables us to produce accurate and contextually relevant documentation for the given codebase.
 
 ### A Step-by-Step Approach
+
 1. **Codebase Traversal**: The process begins by traversing the codebase in a tree-wise fashion to access its contents.
 
 2. **Code Embeddings with CodeBERT**: To extract meaningful information from the code, we employ Microsoft's CodeBERT for code embeddings. However, we encountered an issue with large code files that CodeBERT cannot handle effectively.
@@ -38,6 +39,7 @@ Our prototype streamlines the documentation process by converting a full codebas
 
 ## Tech Stack
 List of technologies used to build the prototype:
+
 - Frontend: Next.js
 - Backend: FastAPI
 
@@ -59,26 +61,32 @@ Check out the Server Setup guide [here](../reDocs.ai/server/README.md).
    ```
    npm run dev
    ```
+
 ## Examples - 
 
 1) Documentation of `ComicifyAI`:
+
 - Input repo : `https://github.com/ayush4345/Comicify.ai`
 - Output Docs :
-<!-- 1. [Documentation_1](/LossPerEpoch/client/examples/comicify/output0.md)
-2. [Documentation_2](/LossPerEpoch/client/examples/comicify/output1.md)
-3. [Documentation_3](/LossPerEpoch/client/examples/comicify/output2.md)
-4. [Documentation_4](/LossPerEpoch/client/examples/comicify/output3.md)
-5. [Documentation_5](/LossPerEpoch/client/examples/comicify/output4.md)
-6. [Documentation_6](/LossPerEpoch/client/examples/comicify/output5.md) -->
+
+1. [Documentation_1](/client/examples/comicify/output0.md)
+2. [Documentation_2](/client/examples/comicify/output1.md)
+3. [Documentation_3](/client/examples/comicify/output2.md)
+4. [Documentation_4](/client/examples/comicify/output3.md)
+5. [Documentation_5](/client/examples/comicify/output4.md)
+6. [Documentation_6](/client/examples/comicify/output5.md)
 
 2) Documentation of `Cluboard`:
+
 - Input repo : `https://github.com/mittal-parth/Cluboard/`
-- Output Docs : 
-<!-- 1. [Documentation_1](/LossPerEpoch/client/examples/clubhouse/output0.md)
-2. [Documentation_2](/LossPerEpoch/client/examples/clubhouse/output1.md) -->
+- Output Docs :
+
+1. [Documentation_1](/client/examples/clubhouse/output0.md)
+2. [Documentation_2](/client/examples/clubhouse/output1.md)
 
 
 ## What We Learned and Challenges faced
+
 1. **Handling Large Code Files**: We faced a challenge with CodeBERT's inability to process large code files. To overcome this, we devised an algorithm to create tokenizers in a window-like manner, allowing us to maintain context by specifying a window size and overlap region. We then took the average of the embeddings produced to formulate our own embeddings for large files, addressing the issue of context preservation.
 
 2. **Aglomerate Clustering for Context Maintenance**: To keep context across the codebase, we used Agglomerate Clustering. This method grouped "similar" code files that shared semantic meanings and features. Concatenating code files within the same cluster, we sent them to GPT-3.5 using efficient prompt engineering to generate comprehensive documentation.
