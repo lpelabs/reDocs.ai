@@ -19,13 +19,13 @@ export default function Hero() {
                             <div class="md:text-center text-left">
                                 <div class="max-w-2xl gap-6 lg:gap-12 lg:items-end mx-auto">
                                     <div>
-                                        <span class="text-lg font-semibold bg-clip-text bg-gradient-to-r font-medium from-purple-400 text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">reDocs.ai</span>
-                                        <h1 class="font-normal text-white mt-8 text-3xl">AI-powered tools to <strong>generate Code &amp; API documentation, Tests, and Code Refactors</strong> <u>from your source code files</u></h1>
+                                        <span class="text-lg bg-clip-text bg-gradient-to-r font-medium from-purple-400 text-transparent to-green-500 tracking-widest uppercase via-emerald-600">reDocs.ai</span>
+                                        <h1 class="font-normal mt-8 text-3xl bg-clip-text text-transparent bg-gradient-to-r from-slate-50 to-gray-200">AI-powered tools to <strong>generate Code &amp; API documentation, Tests, and Code Refactors</strong> from your source code files</h1>
                                     </div>
                                 </div>
                                 <div class="flex flex-col justify-center gap-3 lg:items-center lg:justify-center mt-12 sm:flex-row">
                                     <Link href="#features" class="items-center relative text-sm bg-gradient-to-br focus:ring-[#5b3c7d] hover:text-gray-900 dark:text-white focus:outline-none focus:ring-4 font-medium from-[#6112b5] group group-hover:from-[#5b3c7d] group-hover:to-[#5b3c7d] inline-flex justify-center overflow-hidden p-0.5 rounded-lg text-gray-900 to-[#6112b5] focus:shadow-lg mb-2 mr-2 w-fit" id="hero-landing-cta-button">
-                                        <span class="flex items-center text-white bg-vulcan-900 duration-75 ease-in group-hover:bg-opacity-0 relative rounded-md transition-all py-2.5 px-5">What you get? <svg class="h-4 w-4 ml-1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5"><path d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        <span class="flex items-center text-white duration-150 ease-in  relative rounded-md transition-all py-2.5 px-5 hover:bg-purple-700">Checkout features 🚀 
                                         </span>
                                     </Link>
                                 </div>

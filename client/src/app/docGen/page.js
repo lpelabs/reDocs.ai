@@ -111,8 +111,8 @@ export default function Basic(props) {
             {loading
                 ? <Loading />
                 : <>
-                    <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-gray-400 inline text-[46px] font-bold">
-                        generate documentation
+                    <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-violet-500 via-purple-400 inline text-[46px] font-bold">
+                        Generate Documentation
                     </h1>
                     <div class="flex justify-between w-full -z-[1px] absolute flex-row h-full left-0 lg:h-full lg:max-w-7xl lg:px-0 mx-auto px-6 right-0">
                         <div class="w-full h-full border-[#f5f5f510]/5 border-dashed border-x"></div>
