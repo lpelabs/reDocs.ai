@@ -43,6 +43,7 @@ export default function Refactor(props) {
 
     const options = ["DJango", "React.js"]
     const [zipFile, setZipFile] = useState(null);
+    const [fileContent, setFileContent] = useState('');
 
     const handleFileUpload = (file, entries) => {
         // Handle the selected file
@@ -63,9 +64,7 @@ export default function Refactor(props) {
         isDragAccept,
         isDragReject
     } = useDropzone({
-        maxFiles: 1, accept: {
-            'application/zip': ['.zip']
-        }
+        maxFiles: 1,
     });
 
     const style = React.useMemo(() => ({
@@ -99,17 +98,11 @@ export default function Refactor(props) {
                 redirect: "follow",
             };
 
-            const response = await fetch("https://b02b-14-142-151-66.ngrok-free.app/doxify", requestOptions);
+            const response = await fetch("http://localhost:8000/generate_tests", requestOptions);
             if (response.ok) {
                 console.log("all is good")
-                const blob = await response.blob();
-                const downloadUrl = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = downloadUrl;
-                link.setAttribute('download', 'docs.zip'); // Specify the filename for the downloaded file
-                document.body.appendChild(link);
-                link.click();
-                link.remove();
+                const content = await response.text();
+                setFileContent(content);
                 setLoading(false)
             } else {
                 setLoading(false)
@@ -174,7 +167,7 @@ export default function Refactor(props) {
                                 onChange={handleEditorChange}
                                 theme="vs-dark"
                                 width="60vw"
-                                value={code}
+                                value={fileContent}
                                 className=""
                                 height="80vh"
                             />

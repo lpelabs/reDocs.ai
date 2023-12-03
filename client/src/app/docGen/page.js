@@ -83,7 +83,7 @@ export default function Basic(props) {
                 redirect: "follow",
             };
 
-            const response = await fetch("https://b02b-14-142-151-66.ngrok-free.app/doxify", requestOptions);
+            const response = await fetch("http://localhost:8000/doxify", requestOptions);
             if (response.ok) {
                 console.log("all is good")
                 const blob = await response.blob();
@@ -143,9 +143,10 @@ export default function Basic(props) {
                             <span class="relative w-full text-center text-black transition-colors duration-300 ease-in-out group-hover:text-white">Generate</span>
                         </button>
                     </div>
+                    <div className='text-gray-400'>Note: zip file containing document will be downloaded once it is generated</div>
                 </>
             }
-            <img src="/gradient.svg" loading="eager" alt="" className=' z-1 absolute'></img>
+            <img src="/gradient.svg" loading="eager" alt="" className=' -z-10 absolute'></img>
         </div>
     );
 }

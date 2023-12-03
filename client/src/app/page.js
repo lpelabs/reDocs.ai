@@ -1,3 +1,5 @@
+"use client"
+
 import Feature from '@/components/features'
 import Hero from '@/components/hero'
 import Image from 'next/image'
