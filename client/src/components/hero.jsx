@@ -31,12 +31,6 @@ export default function Hero() {
                                 </div>
                             </div>
                         </div>
-                        <div class="items-center relative max-w-7xl mx-auto w-full border-white/10 lg:border lg:p-10 lg:rounded-5xl mt-12">
-                            <div class="vsc-controller"></div>
-                            <video autoplay="" class="w-full rounded-xl lg:rounded-2xl object-cover shadow-2xl shadow-black/80" muted="">
-                                <source src="https://d1hvpg65d5e656.cloudfront.net/herovideo-code-codumentation.mp4" type="video/mp4" />
-                            </video>
-                        </div>
                     </div>
                 </section>
             </section>
