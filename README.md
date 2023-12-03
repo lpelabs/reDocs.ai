@@ -6,7 +6,7 @@ The lack of an automated solution for converting codebases into documentation po
 
 ## Architecture Diagram
 
-
+![architecture diagram](https://github.com/ayush4345/reDocs.ai/blob/main/client/public/architecture.jpg)
 
 ## Prototype Description
 
