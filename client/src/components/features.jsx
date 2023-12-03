@@ -56,7 +56,7 @@ const Feature = () => {
         <div className="relative px-8 lg:px-32 md:px-12 mx-auto max-w-7xl py-12 lg:py-24 space-y-24">
           <div className="list-none gap-4 grid grid-cols-1 lg:gap-24 lg:grid-cols-2 mt-6">
             <div>
-              <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#6112b5] text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">
+              <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#b278ef] text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">
                 Code Documentation
               </span>
               <h2 className="font-normal text-white mt-8 text-3xl">
@@ -86,9 +86,9 @@ const Feature = () => {
                       </svg>
                       <p className="text-sm text-slate-400 leading-6 ml-2">
                         <strong className="font-semibold text-slate-100">
-                          Save time
+                          Entire Codebase
                         </strong>{" "}
-                        — Rapid AI-driven generation.
+                        — reDocs.ai helps in documenting the entire codebase
                       </p>
                     </div>
                   </li>
@@ -110,9 +110,9 @@ const Feature = () => {
                       </svg>
                       <p className="text-sm text-slate-400 leading-6 ml-2">
                         <strong className="font-semibold text-slate-100">
-                          No Outdates{" "}
+                          Best practices{" "}
                         </strong>
-                        — Continuous code documentation refresh.
+                        — Documentations are generated as per the best
                       </p>
                     </div>
                   </li>
@@ -146,7 +146,7 @@ const Feature = () => {
                 href="/docGen"
                 className="items-center relative text-sm bg-gradient-to-br dark:focus:ring-lime-800 dark:hover:text-gray-900 dark:text-white focus:outline-none focus:ring-4 focus:ring-lime-200 font-medium from-[#6112b5] group group-hover:from-[#6112b5] group-hover:to-[#6112b5] inline-flex justify-center overflow-hidden p-0.5 rounded-lg text-gray-900 to-[#6112b5] mb-2 mr-2 w-fit mt-6"
               >
-                <span className="flex items-center text-white bg-vulcan-900 duration-75 ease-in group-hover:bg-opacity-0 relative rounded-md transition-all py-2.5 px-8">
+                <span className="flex items-center text-white hover:bg-purple-700 duration-75 ease-in relative rounded-md transition-all py-2.5 px-8">
                   Get started ✨
                 </span>
               </Link>
@@ -168,7 +168,7 @@ const Feature = () => {
               </div>
             </div>
             <div>
-              <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#9940ed] text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">
+              <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#b278ef] text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">
                 TESTS GENERATION
               </span>
               <h2 className="font-normal text-white mt-8 text-3xl">
@@ -257,7 +257,7 @@ const Feature = () => {
                 href="/testGen"
                 className="items-center relative text-sm bg-gradient-to-br dark:focus:ring-lime-800 dark:hover:text-gray-900 dark:text-white focus:outline-none focus:ring-4 focus:ring-lime-200 font-medium from-[#6112b5] group group-hover:from-[#6112b5] group-hover:to-[#6112b5] inline-flex justify-center overflow-hidden p-0.5 rounded-lg text-gray-900 to-[#6112b5] mb-2 mr-2 w-fit mt-6"
               >
-                <span className="flex items-center text-white bg-vulcan-900 duration-75 ease-in group-hover:bg-opacity-0 relative rounded-md transition-all py-2.5 px-8">
+                <span className="flex items-center text-white hover:bg-purple-700 duration-75 ease-in relative rounded-md transition-all py-2.5 px-8">
                   Get started ✨
                 </span>
               </Link>
@@ -265,7 +265,7 @@ const Feature = () => {
           </div>
           <div className="list-none gap-4 grid grid-cols-1 lg:gap-24 lg:grid-cols-2 mt-6">
             <div>
-              <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#9940ed] text-transparent to-green-500 tracking-widest uppercase via-esmerald-600">
+              <span className="text-xs bg-clip-text bg-gradient-to-r font-medium from-[#b278ef] text-transparent to-green-500 tracking-widest uppercase via-emerald-600">
                 Code Refactoring / Optimization
               </span>
               <h2 className="font-normal text-white mt-8 text-3xl">
@@ -354,7 +354,7 @@ const Feature = () => {
                 href="/refactor"
                 className="items-center relative text-sm bg-gradient-to-br dark:focus:ring-lime-800 dark:hover:text-gray-900 dark:text-white focus:outline-none focus:ring-4 focus:ring-lime-200 font-medium from-[#6112b5] group group-hover:from-[#6112b5] group-hover:to-[#6112b5] inline-flex justify-center overflow-hidden p-0.5 rounded-lg text-gray-900 to-[#6112b5] mb-2 mr-2 w-fit mt-6"
               >
-                <span className="flex items-center text-white bg-vulcan-900 duration-75 ease-in group-hover:bg-opacity-0 relative rounded-md transition-all py-2.5 px-8">
+                <span className="flex items-center text-white hover:bg-purple-700 duration-75 ease-in relative rounded-md transition-all py-2.5 px-8">
                   Get started ✨
                 </span>
               </Link>
