@@ -28,9 +28,11 @@ To power our documentation generation, we leverage the capabilities of GPT-3.5. 
 
 5. **Efficient Documentation Generation**: After clustering, we concatenate the code files belonging to the same cluster. The resulting concatenated code is then sent to GPT-3.5 using efficient prompt engineering techniques. The generated documentation provides comprehensive insights into the codebase.
 
-6. **Code Refactoring Ability** : We harness the power of the LLM to perform code refactoring, with our complex prompt to change the given code block to a neater, efficient and structurally sound code output. We focus on the cleanliness in the prompting along with considering various code analytics to get the best output.
+### Code Refactoring Ability
+We harness the power of the LLM to perform code refactoring, with our complex prompt to change the given code block to a neater, efficient and structurally sound code output. We focus on the cleanliness in the prompting along with considering various code analytics to get the best output.
 
-7. **Adding Tests to Code** : We also provide a solution to add testing for a specific code block. This forms an integral component in the developer experience, and eliminates the need to devote much time to think about the testing. We again leverage well thought of prompts to give optimal and exhaustive tests.
+### Adding Tests to Code
+We also provide a solution to add testing for a specific code block. This forms an integral component in the developer experience, and eliminates the need to devote much time to think about the testing. We again leverage well thought of prompts to give optimal and exhaustive tests.
 
 ## Summary
 Our prototype streamlines the documentation process by converting a full codebase into developer documentation in a single step. Leveraging GPT-3.5, we produce accurate and contextually relevant documentation, addressing the challenges of manual documentation processes. The resulting documentation enhances code comprehension, reduces technical debt, and improves code maintainability for software development teams. We also provide solutions for Code Refactoring and ability to add Testing to your code block.
@@ -48,7 +50,7 @@ To clone and run the prototype for testing and analysis, follow the instructions
 
 ### Server Setup Guide
 
-Check out the Server Setup guide [here](../reDocs.ai/server/README.md).
+Check out the Server Setup guide [here](/server/README.md).
 
 ### Client Frontend Setup(make sure you are in the client directory)
 
