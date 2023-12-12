@@ -24,7 +24,7 @@ To power our documentation generation, we leverage the capabilities of GPT-3.5. 
 
 3. **Handling Large Code Files**: To overcome the limitations of CodeBERT for large code files, we devised our own algorithm to create tokenizers in a window-like manner. By specifying a window size and an overlap "region," we maintain essential context and generate embeddings by averaging the embeddings produced for each window.
 
-4. **Maintaining Context with Agglomerating Clustering**: To ensure context preservation across the codebase, we use Agglomerating Clustering. This technique groups "similar" code files with shared semantic meanings and features, enhancing the quality of the generated documentation.
+4. **Maintaining Context with Agglomerating Clustering**: To ensure context preservation across the codebase, we use Agglomerative Clustering. This technique groups "similar" code files with shared semantic meanings and features, enhancing the quality of the generated documentation. We choose this type of clustering to exploit the hierarchical relations in the clusters formed.
 
 5. **Efficient Documentation Generation**: After clustering, we concatenate the code files belonging to the same cluster. The resulting concatenated code is then sent to GPT-3.5 using efficient prompt engineering techniques. The generated documentation provides comprehensive insights into the codebase.
 
