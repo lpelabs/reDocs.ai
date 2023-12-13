@@ -76,6 +76,10 @@ List of technologies used to build the prototype:
 
 1. [Documentation_1](/client/examples/clubhouse/output0.md)
 2. [Documentation_2](/client/examples/clubhouse/output1.md)
+## Architecture Diagram
+
+![redocs_arch](https://github.com/LPE-Labs/reDocs.ai/assets/97223188/c475e191-64d1-4e40-a8df-4f65423655fa)
+
 
 ## Start Contributing
 
