@@ -77,6 +77,9 @@ List of technologies used to build the prototype:
 1. [Documentation_1](/client/examples/clubhouse/output0.md)
 2. [Documentation_2](/client/examples/clubhouse/output1.md)
 
+## Start Contributing
+
+* Read our Contribution Guidelines to get started [here](./contribution.md)
 ## License
 
 [MIT License](./LICENSE)
