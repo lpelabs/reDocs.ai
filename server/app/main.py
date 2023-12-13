@@ -5,6 +5,11 @@ from typing import Annotated
 from datetime import date
 from fastapi.middleware.cors import CORSMiddleware
 
+# Load environment variables first
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from api.routes import routes
 
 app = FastAPI()
