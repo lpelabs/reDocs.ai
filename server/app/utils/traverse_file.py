@@ -15,7 +15,6 @@ import numpy as np
 media_extensions = ['github','docs','jpg', 'jpeg', 'png', 'gif', 'bmp','svg', 'mp3', 'wav', 'ogg', 'mp4', 'avi', 'mkv', 'ico', 'pdf', 'nix', 'ttf', 'lock', 'pyc']
 ignore_files = ['package-lock.json', 'venv', 'public', 'assets', 'lotties', 'readme.md']
 
-SHOULD_MOCK_AI_RESPONSE = False
 
 def bfs_traversal(root_dir):
     queue = Queue()
@@ -112,13 +111,17 @@ def bfs_traversal(root_dir):
 
     i=0
     for i in range(len(indices_list)):
+
+        print(SHOULD_MOCK_AI_RESPONSE)
         # join the code snippets in the index using code_for_gpt
         prompt = ' '.join([code_for_gpt[i] for i in indices_list[i]])
         # Call GPT
         # call_openai_api_higher_tokens(prompt, f'files/output{i}.md')
-        if SHOULD_MOCK_AI_RESPONSE:
+        if SHOULD_MOCK_AI_RESPONSE=='True':
+            print("Mocking AI response")
             mock_chunks_gpt(prompt, f'docs/output{i}.md')
-        else:
+        elif SHOULD_MOCK_AI_RESPONSE=='False':
+            print("Calling OpenAI API")
             system_prompt = """You are a smart technical writer who understands code and can write documentation for it."""
             user_prompt = """Give me a developers documentation of the following code. Give a brief intro, table of contents, function explanations, dependencies, API specs (if present), schema tables in markdown. Give in markdown format and try to strict to the headings"""
             process_chunks(prompt, f'docs/output{i}.md', system_prompt, user_prompt)

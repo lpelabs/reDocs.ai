@@ -1,8 +1,9 @@
-# Useful for debugging purposes when you don't want to waste GPT credits
-# Setting to True will stream a mock response instead of calling the OpenAI API
-# TODO: Should only be set to true when value is 'True', not any abitrary truthy value
+import configparser
 import os
 
+config = configparser.ConfigParser()
+config.read("config.ini")
 
-SHOULD_MOCK_AI_RESPONSE = bool(os.environ.get("MOCK", True))
+# Set default value to True in case the environment variable is not present
+SHOULD_MOCK_AI_RESPONSE = os.getenv("MOCK", config.getboolean("DEFAULT", "SHOULD_MOCK_AI_RESPONSE", fallback=True))
 

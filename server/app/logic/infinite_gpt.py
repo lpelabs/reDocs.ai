@@ -79,9 +79,13 @@ def ask_gpt_to_generate_tests(prompt_text, output_folder):
     
     output_file = f'{output_folder}/output.txt'
 
-    if SHOULD_MOCK_AI_RESPONSE:
+    print(SHOULD_MOCK_AI_RESPONSE)
+
+    if SHOULD_MOCK_AI_RESPONSE=='True':
+        print("Mocking AI response")
         mock_chunks_gpt(prompt_text, output_file)
-    else:
+    if SHOULD_MOCK_AI_RESPONSE=='False':
+        print("Calling OpenAI API")
         response = call_openai_api(prompt_text, system_prompt, user_prompt)
         print(response)
         save_to_file(response, output_file)
@@ -95,15 +99,16 @@ def ask_gpt_to_refactor_code(prompt_text, output_folder):
 
     output_file = f'{output_folder}/output.txt'
 
-    if SHOULD_MOCK_AI_RESPONSE:
+    print(SHOULD_MOCK_AI_RESPONSE)
 
+    if SHOULD_MOCK_AI_RESPONSE=='True':
+        print("Mocking AI response")
         mock_chunks_gpt(prompt_text, output_file)
 
-    else:
+    if SHOULD_MOCK_AI_RESPONSE=='False':
+        print("Calling OpenAI API")
         response = call_openai_api(prompt_text, system_prompt, user_prompt)
-
         print(response)
-        
         save_to_file(response, output_file)
 
 # -----DEPRECATED CODE-----
