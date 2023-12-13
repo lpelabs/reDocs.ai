@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 import json
 import backoff # for exponential backoff
+from config import SHOULD_MOCK_AI_RESPONSE
 
 load_dotenv()
 
@@ -48,12 +49,12 @@ def process_chunks(text, output_file, system_prompt, user_prompt):
 @backoff.on_exception(backoff.expo, openai.error.RateLimitError)
 def call_openai_api(text, system_prompt, user_prompt):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo-16k",
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"{user_prompt}\n\n: {text}."}
         ],
-        max_tokens=2000,
+        max_tokens=4000,
         n=1,
         stop=None,
         temperature=0.5,
@@ -77,10 +78,17 @@ def ask_gpt_to_generate_tests(prompt_text, output_folder):
     user_prompt = """Write tests for the following code, make sure to handle all the test cases, if you are writing tests to test an API endpoint, try also writing the tests such that it makes a legit request by sending appropriate data to the endpoint. Choose writing tests in the best framework possible according to the language, strictly return only the code for the tests, avoid returning any other text."""
     
     output_file = f'{output_folder}/output.txt'
-    # mock_chunks_gpt(prompt_text, output_file)
-    response = call_openai_api(prompt_text, system_prompt, user_prompt)
-    print(response)
-    save_to_file(response, output_file)
+
+    print(SHOULD_MOCK_AI_RESPONSE)
+
+    if SHOULD_MOCK_AI_RESPONSE=='True':
+        print("Mocking AI response")
+        mock_chunks_gpt(prompt_text, output_file)
+    if SHOULD_MOCK_AI_RESPONSE=='False':
+        print("Calling OpenAI API")
+        response = call_openai_api(prompt_text, system_prompt, user_prompt)
+        print(response)
+        save_to_file(response, output_file)
 
 
 def ask_gpt_to_refactor_code(prompt_text, output_folder):
@@ -91,12 +99,17 @@ def ask_gpt_to_refactor_code(prompt_text, output_folder):
 
     output_file = f'{output_folder}/output.txt'
 
-    # mock_chunks_gpt(prompt_text, output_file)
-    response = call_openai_api(prompt_text, system_prompt, user_prompt)
+    print(SHOULD_MOCK_AI_RESPONSE)
 
-    print(response)
-    
-    save_to_file(response, output_file)
+    if SHOULD_MOCK_AI_RESPONSE=='True':
+        print("Mocking AI response")
+        mock_chunks_gpt(prompt_text, output_file)
+
+    if SHOULD_MOCK_AI_RESPONSE=='False':
+        print("Calling OpenAI API")
+        response = call_openai_api(prompt_text, system_prompt, user_prompt)
+        print(response)
+        save_to_file(response, output_file)
 
 # -----DEPRECATED CODE-----
 
