@@ -2,21 +2,23 @@
 
 We encourage contributions to reDocs.ai! Here's how you can get involved:
 
-1. **Fork the Repository**: Before making any changes, create a fork of the reDocs.ai repository on GitHub. This allows you to work on your own copy of the code without affecting the main project.
+## Creating Issues
 
-2. **Branch for Your Contribution**: Create a new branch for your specific contribution using `git checkout -b <branch-name>`. This helps keep the main branch clean and facilitates reviewing and merging your changes.
+Before you submit an issue, please do a search in [open issues](https://github.com/LPE-Labs/reDocs.ai/issues) to see if the issue or feature request has already been filed. Fill in with as much detail as possible. The more detail you provide, the more likely that someone can help you.
 
-3. **Implement Your Changes**: Make your changes to the code, following the project's coding style and best practices. We encourage you to write unit tests for your code to ensure its functionality and stability.
+## Submitting Pull Requests
 
-4. **Commit Your Changes**: Once you're satisfied with your changes, add your changes to your branch and commit them with a descriptive commit message. Additionally make sure to read [this](https://zulip.readthedocs.io/en/latest/contributing/commit-discipline.html) doc to follow a similar commit discipline.
+If you're working on an existing issue, respond to the issue and express interest in working on it. This helps other people know that the issue is active, and hopefully prevents duplicated efforts.
 
-5. **Create a Pull Request**: Create a pull request from your branch to the main branch of the reDocs.ai repository. Be sure to include a detailed description of your changes and any relevant testing results.
+To submit a pull request, follow the following steps:
 
-6. **Respond to Feedback**: The maintainers will review your pull request and provide feedback. Be prepared to answer questions, address concerns, and make adjustments to your code as needed.
+* Clone the repository.
+* Create a new branch from `main`.
+* Once you're satisfied with your changes, add your changes to your branch and commit them with a descriptive commit message. Additionally make sure to read [this](https://zulip.readthedocs.io/en/latest/contributing/commit-discipline.html) doc to follow a similar commit discipline.
+* Push your branch and submit a pull request to the main branch.
+* Await review. Respond to any comments or requests made by reviewers.
 
-7. **Get Merged!**: Once your pull request is approved, it will be merged into the reDocs.ai codebase. Your contributions will be available to everyone using the project!
-
-### Contribution Guidelines:
+### Code of Conduct:
 
 * Write clear and concise code that follows the project's style guide.
 * Include unit tests for your code.
