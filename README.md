@@ -83,7 +83,7 @@ List of technologies used to build the prototype:
 
 ## Start Contributing
 
-* Read our Contribution Guidelines to get started [here](./contribution.md)
+* Read our Contribution Guidelines to get started [here](./CONTRIBUTING.md)
 ## License
 
 [MIT License](./LICENSE)
