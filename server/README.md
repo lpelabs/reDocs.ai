@@ -62,10 +62,15 @@ MOCK=True uvicorn main:app --reload
 
 Please try deleting `venv` and then try the following steps again - 
 
-1.`cd server`
+1. `cd server`
+
 2. `python -m venv venv` - or - `python3 -m venv venv`
+   
 3. Activate venv - `source venv/bin/activate` or `./venv/Scripts/activate`
+   
 4. `pip install -r requirements.txt`
+   
 5. `echo "OPEN_AI_API=sk-your-key" > .env`
+   
 6. `MOCK=True uvicorn main:app --reload`
 
