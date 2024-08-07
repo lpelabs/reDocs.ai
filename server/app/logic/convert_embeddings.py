@@ -33,6 +33,8 @@
 
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
+from scipy.cluster.hierarchy import dendrogram, linkage
+import matplotlib.pyplot as plt
 
 reshaped_embeddings_list = []
 def convert_embeddings(list):
@@ -54,3 +56,27 @@ def clustering(list1):
     #for i in range(len(indices_list)):
         #print("Bro i called clustering: ",list(indices_list[i]))
     return indices_list
+
+
+# Adding dendogram feature
+def plot_dendrogram(embeddings):
+    
+    linkage_matrix = linkage(embeddings, method='complete', metric='cosine')
+    plt.figure(figsize=(10, 5))
+    dendrogram(linkage_matrix)
+    plt.title('Hierarchical Clustering Dendrogram')
+    plt.xlabel('Embeddings')
+    plt.ylabel('Distance')
+    plt.show()
+
+if __name__ == "__main__":
+   
+    sample_embeddings = [np.random.rand(1, 128) for _ in range(10)]
+    reshaped_embeddings = convert_embeddings(sample_embeddings)
+    clusters = clustering(reshaped_embeddings)
+    
+    for i, cluster_indices in enumerate(clusters):
+        print(f"Cluster {i}: {list(cluster_indices)}")
+
+    # Plot the dendrogram
+    plot_dendrogram(reshaped_embeddings)
